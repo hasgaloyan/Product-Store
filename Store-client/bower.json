@@ -1,0 +1,24 @@
+{
+  "name": "store",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Hasmik Galoyan <has.galoyan@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3",
+    "jquery": "^3.2.0",
+    "angular-route": "^1.6.3",
+    "bootstrap": "^3.3.7"
+  }
+}

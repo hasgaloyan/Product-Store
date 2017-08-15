@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <title>Product store</title>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="./src/styles/angular.rangeSlider.css">
+
+        <!-- Libraries -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="src/angular.rangeSlider.js"></script>
+
+        <!-- app entry -->
+        <script src="src/app.js"></script>
+
+        <!-- Routing -->
+        <script src="src/route.js"></script>
+
+        <!-- Components -->
+        <script src="src/components/store/store.controller.js"></script>
+        <script src="src/components/shopping-card/shopping-card.controller.js"></script>
+
+        <!-- Directives -->
+        <script src="src/directives/header/header.directive.js"></script>
+
+        <!-- Services -->
+        <script src="./src/services/api.service.js"></script>
+
+    </head>
+    <body>
+        <header></header>
+            <div ng-view></div>
+        <footer></footer>
+    </body>
+</html>

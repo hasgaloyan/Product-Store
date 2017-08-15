@@ -1,0 +1,92 @@
+<div id="store">
+    <div class="container">
+
+        <div class="row">
+
+            <h3 class="text-left">Product store</h3>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Add</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="product in products">
+                    <td>{{product.name}}</td>
+                    <td>{{product.price * product.quantity}} dr</td>
+                    <td>
+                        <select class="form-control" ng-change="changeQuantity(product)"  ng-model="product.quantity">
+                            <option  ng-repeat="v in productCount" value="{{v}}">{{v}}</option>
+                        </select>
+                    </td>
+                    <td><button class="btn btn-danger btn-sm" ng-click="removeFromCard($index, product)">delete</button></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <button ng-if="products.length" class="btn btn-success" data-toggle="modal" data-target="#checkout-modal">Proceed to checkout</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="checkout-modal" tabindex="-1" role="dialog" aria-labelledby="checkout-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Checkout</h4>
+            </div>
+            <form name="checkoutForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">Firstname:</label>
+                        <input type="text" class="form-control" id="name" ng-model="checkoutData.FirstName" autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Lastname:</label>
+                        <input type="text" class="form-control" id="lastname" ng-model="checkoutData.LastName" autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" class="form-control" id="address" ng-model="checkoutData.Address" autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="text" class="form-control" id="phone" ng-model="checkoutData.Phone" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="postalcode">Postal code:</label>
+                        <input type="text" class="form-control" id="postalcode" ng-model="checkoutData.PostalCode" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control" id="city" ng-model="checkoutData.City" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <input type="text" class="form-control" id="country" ng-model="checkoutData.Country" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <input type="text" class="form-control" id="state" ng-model="checkoutData.State" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email address:</label>
+                        <input type="email" class="form-control" id="email" ng-model="checkoutData.Email" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button ng-disabled="checkoutForm.$invalid" type="button" class="btn btn-primary" ng-click="checkout()">Checkout</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
